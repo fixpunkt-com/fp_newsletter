@@ -41,7 +41,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getTitleReturnsInitialValueForString()
+    public function getTitleReturnsInitialValueForString(): void
     {
         self::assertSame(
             '',
@@ -53,7 +53,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setTitleForStringSetsTitle()
+    public function setTitleForStringSetsTitle(): void
     {
         $this->subject->setTitle('Conceived at T3CON10');
 
@@ -68,7 +68,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getFirstnameReturnsInitialValueForString()
+    public function getFirstnameReturnsInitialValueForString(): void
     {
         self::assertSame(
             '',
@@ -80,7 +80,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setFirstnameForStringSetsFirstname()
+    public function setFirstnameForStringSetsFirstname(): void
     {
         $this->subject->setFirstname('Conceived at T3CON10');
 
@@ -95,7 +95,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getLastnameReturnsInitialValueForString()
+    public function getLastnameReturnsInitialValueForString(): void
     {
         self::assertSame(
             '',
@@ -107,7 +107,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setLastnameForStringSetsLastname()
+    public function setLastnameForStringSetsLastname(): void
     {
         $this->subject->setLastname('Conceived at T3CON10');
 
@@ -122,7 +122,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getEmailReturnsInitialValueForString()
+    public function getEmailReturnsInitialValueForString(): void
     {
         self::assertSame(
             '',
@@ -134,7 +134,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setEmailForStringSetsEmail()
+    public function setEmailForStringSetsEmail(): void
     {
         $this->subject->setEmail('Conceived at T3CON10');
 
@@ -163,7 +163,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getSecurityhashReturnsInitialValueForString()
+    public function getSecurityhashReturnsInitialValueForString(): void
     {
         self::assertSame(
             '',
@@ -175,7 +175,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setSecurityhashForStringSetsSecurityhash()
+    public function setSecurityhashForStringSetsSecurityhash(): void
     {
         $this->subject->setSecurityhash('Conceived at T3CON10');
 
@@ -190,7 +190,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function getGdprReturnsInitialValueForBool()
+    public function getGdprReturnsInitialValueForBool(): void
     {
         self::assertSame(
             false,
@@ -202,7 +202,7 @@ class LogTest extends UnitTestCase
     /**
      * @test
      */
-    public function setGdprForBoolSetsGdpr()
+    public function setGdprForBoolSetsGdpr(): void
     {
         $this->subject->setGdpr(true);
 

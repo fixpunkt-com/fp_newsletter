@@ -117,7 +117,7 @@ final class PreviewEventListener
             return;
         }
 
-        if ($event->getRecord()['CType'] === 'list' && in_array($event->getRecord()['list_type'], $this->pis)) {
+        if (in_array($event->getRecord()['CType'], $this->pis)) {
             $this->tableData = [];
             $pi = substr((string) $event->getRecord()['list_type'], strpos((string) $event->getRecord()['list_type'], '_')+1);
             $header = '<strong>' . htmlspecialchars((string) $this->getLanguageService()->sL(self::LLPATH . 'template.' . $pi)) . '</strong>';
@@ -155,9 +155,9 @@ final class PreviewEventListener
 
         if (is_array($record)) {
             $data = '<span data-toggle="tooltip" data-placement="top" data-title="id=' . $record['uid'] . '">'
-                . $this->iconFactory->getIconForRecord($table, $record, Icon::SIZE_SMALL)->render()
+                . $this->iconFactory->getIconForRecord($table, $record, \TYPO3\CMS\Core\Imaging\IconSize::SMALL)->render()
                 . '</span> &nbsp;';
-            $content = BackendUtilityCore::wrapClickMenuOnIcon($data, $table, $record['uid'], true, $record);
+            $content = BackendUtilityCore::wrapClickMenuOnIcon($data, $table, $record['uid']);
             $content .= htmlspecialchars(BackendUtilityCore::getRecordTitle($table, $record));
         } else {
             $text = sprintf($this->getLanguageService()->sL(self::LLPATH . 'pagemodule.pageNotAvailable'),
@@ -174,7 +174,7 @@ final class PreviewEventListener
      * @param string $pids
      * @return void
      */
-    public function getStartingPoint($pids)
+    public function getStartingPoint($pids): void
     {
         if (!empty($pids)) {
             $pageIds = GeneralUtility::intExplode(',', $pids, true);

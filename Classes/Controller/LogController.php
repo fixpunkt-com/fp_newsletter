@@ -92,12 +92,12 @@ class LogController extends ActionController
     /**
      * action new
      *
-     * @param Log|null $log            Log-Entry
-     * @param int|null $error          Error-Code
-     * @param string|null $error_msg   Error-Message
+     * @param Log|null $log          Log-Entry
+     * @param int $error             Error-Code
+     * @param string|null $error_msg Error-Message
      * @return ResponseInterface
      */
-    public function newAction(Log $log = null, int $error = 0, string $error_msg = null): ResponseInterface
+    public function newAction(?Log $log = null, int $error = 0, ?string $error_msg = null): ResponseInterface
     {
         $genders = $this->helpersUtility->getGenders($this->settings['preferXlfFile'], $this->settings['gender']);
         $optional = [];
@@ -257,6 +257,12 @@ class LogController extends ActionController
         $error = 0;
         $pageArguments = $this->request->getAttribute('routing');
         $email = $this->request->hasArgument('email') ? $this->request->getArgument('email') : '';
+        if (!$email) {
+            // Notlösung, wenn falsches pi ausgewählt wurde
+            if (isset($_POST['tx_fpnewsletter_email']) && is_array($_POST['tx_fpnewsletter_email'])) {
+                $email = $_POST['tx_fpnewsletter_email']['email'];
+            }
+        }
         if ($email) {
             // send email with a link to an edit page
             $dbuidext = 0;
@@ -357,7 +363,7 @@ class LogController extends ActionController
             if ($sys_language_uid > 0 && $this->settings['languageMode']) {
                 $log = $this->logRepository->findAnotherByUid($uid, $sys_language_uid);
             } else {
-                $log = $this->logRepository->findOneByUid($uid);
+                $log = $this->logRepository->findOneBy(['uid' => $uid]);
             }
             if ($log) {
                 $dbuid = $log->getUid();
@@ -538,7 +544,7 @@ class LogController extends ActionController
      * @throws StopActionException
      * @throws SiteNotFoundException
      */
-    public function createAction(Log $log = null): ResponseInterface
+    public function createAction(?Log $log = null): ResponseInterface
     {
         if (!$log) {
             $uri = $this->uriBuilder->uriFor('new', ['error_msg' => 'Missing Log entry! / Log-Parameter fehlt!']);
@@ -665,7 +671,7 @@ class LogController extends ActionController
      * @return ResponseInterface
      * @throws \Exception
      */
-    public function unsubscribeAction(Log $log = null, int $error = 0): ResponseInterface
+    public function unsubscribeAction(?Log $log = null, int $error = 0): ResponseInterface
     {
         $storagePidsArray = $this->logRepository->getStoragePids();
         $pid = intval($storagePidsArray[0]);
@@ -909,7 +915,7 @@ class LogController extends ActionController
      * @param array $user tt_address oder fe_users Daten
      * @return ResponseInterface
      */
-    public function deleteAction(Log $log = null, array $user = []): ResponseInterface
+    public function deleteAction(?Log $log = null, array $user = []): ResponseInterface
     {
         $error = 0;
         $messageUid = 0;
@@ -1142,7 +1148,7 @@ class LogController extends ActionController
             if ($sys_language_uid > 0 && $this->settings['languageMode']) {
                 $log = $this->logRepository->findAnotherByUid($uid, $sys_language_uid);
             } else {
-                $log = $this->logRepository->findOneByUid($uid);
+                $log = $this->logRepository->findOneBy(['uid' => $uid]);
             }
             if ($log) {
                 $dbuid = $log->getUid();
@@ -1285,7 +1291,7 @@ class LogController extends ActionController
             if ($sys_language_uid > 0 && $this->settings['languageMode']) {
                 $log = $this->logRepository->findAnotherByUid($uid, $sys_language_uid);
             } else {
-                $log = $this->logRepository->findOneByUid($uid);
+                $log = $this->logRepository->findOneBy(['uid' => $uid]);
             }
             if ($log) {
                 $dbuid = $log->getUid();

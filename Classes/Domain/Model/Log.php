@@ -63,10 +63,10 @@ class Log extends AbstractEntity
     /**
      * E-Mail
      *
-     * @Extbase\Validate("NotEmpty")
-     * @Extbase\Validate("EmailAddress")
      * @var string
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
+    #[Extbase\Validate(['validator' => 'EmailAddress'])]
     protected $email = '';
 
     /**
@@ -212,9 +212,9 @@ class Log extends AbstractEntity
     /**
      * GDPR checkbox
      *
-     * @Extbase\Validate("Boolean", options={"is": true})
      * @var bool
      */
+    #[Extbase\Validate(['validator' => 'Boolean', 'options' => ['is' => true]])]
     protected $gdpr = false;
 
     /**
@@ -262,7 +262,7 @@ class Log extends AbstractEntity
      * @param string $tstamp
      * @return void
      */
-    public function setTstamp($tstamp)
+    public function setTstamp($tstamp): void
     {
         $this->tstamp = $tstamp;
     }
@@ -303,7 +303,7 @@ class Log extends AbstractEntity
      * @param int $gender
      * @return void
      */
-    public function setGender($gender)
+    public function setGender($gender): void
     {
         $this->gender = $gender;
     }
@@ -324,7 +324,7 @@ class Log extends AbstractEntity
      * @param string $title
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle($title): void
     {
     	$this->title = $title;
     }
@@ -345,7 +345,7 @@ class Log extends AbstractEntity
      * @param string $firstname
      * @return void
      */
-    public function setFirstname($firstname)
+    public function setFirstname($firstname): void
     {
         $this->firstname = $firstname;
     }
@@ -366,7 +366,7 @@ class Log extends AbstractEntity
      * @param string $lastname
      * @return void
      */
-    public function setLastname($lastname)
+    public function setLastname($lastname): void
     {
         $this->lastname = $lastname;
     }
@@ -387,7 +387,7 @@ class Log extends AbstractEntity
      * @param string $email
      * @return void
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->email = trim($email);
     }
@@ -408,7 +408,7 @@ class Log extends AbstractEntity
      * @param string $address
      * @return void
      */
-    public function setAddress($address)
+    public function setAddress($address): void
     {
     	$this->address = $address;
     }
@@ -429,7 +429,7 @@ class Log extends AbstractEntity
      * @param string $zip
      * @return void
      */
-    public function setZip($zip)
+    public function setZip($zip): void
     {
     	$this->zip = $zip;
     }
@@ -450,7 +450,7 @@ class Log extends AbstractEntity
      * @param string $city
      * @return void
      */
-    public function setCity($city)
+    public function setCity($city): void
     {
     	$this->city = $city;
     }
@@ -471,7 +471,7 @@ class Log extends AbstractEntity
      * @param string $region
      * @return void
      */
-    public function setRegion($region)
+    public function setRegion($region): void
     {
     	$this->region = $region;
     }
@@ -492,7 +492,7 @@ class Log extends AbstractEntity
      * @param string $country
      * @return void
      */
-    public function setCountry($country)
+    public function setCountry($country): void
     {
     	$this->country = $country;
     }
@@ -513,7 +513,7 @@ class Log extends AbstractEntity
      * @param string $phone
      * @return void
      */
-    public function setPhone($phone)
+    public function setPhone($phone): void
     {
     	$this->phone = $phone;
     }
@@ -534,7 +534,7 @@ class Log extends AbstractEntity
      * @param string $mobile
      * @return void
      */
-    public function setMobile($mobile)
+    public function setMobile($mobile): void
     {
     	$this->mobile = $mobile;
     }
@@ -555,7 +555,7 @@ class Log extends AbstractEntity
      * @param string $fax
      * @return void
      */
-    public function setFax($fax)
+    public function setFax($fax): void
     {
     	$this->fax = $fax;
     }
@@ -576,7 +576,7 @@ class Log extends AbstractEntity
      * @param string $www
      * @return void
      */
-    public function setWww($www)
+    public function setWww($www): void
     {
     	$this->www = $www;
     }
@@ -597,7 +597,7 @@ class Log extends AbstractEntity
      * @param string $position
      * @return void
      */
-    public function setPosition($position)
+    public function setPosition($position): void
     {
     	$this->position = $position;
     }
@@ -618,7 +618,7 @@ class Log extends AbstractEntity
      * @param string $company
      * @return void
      */
-    public function setCompany($company)
+    public function setCompany($company): void
     {
     	$this->company = $company;
     }
@@ -639,7 +639,7 @@ class Log extends AbstractEntity
      * @param string $categories
      * @return void
      */
-    public function setCategories($categories)
+    public function setCategories($categories): void
     {
     	$this->categories = $categories;
     }
@@ -660,7 +660,7 @@ class Log extends AbstractEntity
      * @param int $status
      * @return void
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->status = $status;
     }
@@ -681,7 +681,7 @@ class Log extends AbstractEntity
      * @param string $securityhash
      * @return void
      */
-    public function setSecurityhash($securityhash)
+    public function setSecurityhash($securityhash): void
     {
         $this->securityhash = $securityhash;
     }
@@ -702,7 +702,7 @@ class Log extends AbstractEntity
      * @param string $retoken
      * @return void
      */
-    public function setRetoken($retoken)
+    public function setRetoken($retoken): void
     {
     	$this->retoken = $retoken;
     }
@@ -723,7 +723,7 @@ class Log extends AbstractEntity
      * @param string $mathcaptcha
      * @return void
      */
-    public function setMathcaptcha($mathcaptcha)
+    public function setMathcaptcha($mathcaptcha): void
     {
     	$this->mathcaptcha = $mathcaptcha;
     }
@@ -744,7 +744,7 @@ class Log extends AbstractEntity
      * @param int $mathcaptcha1
      * @return void
      */
-    public function setMathcaptcha1($mathcaptcha1)
+    public function setMathcaptcha1($mathcaptcha1): void
     {
     	$this->mathcaptcha1 = $mathcaptcha1;
     }
@@ -765,7 +765,7 @@ class Log extends AbstractEntity
      * @param int $mathcaptcha2
      * @return void
      */
-    public function setMathcaptcha2($mathcaptcha2)
+    public function setMathcaptcha2($mathcaptcha2): void
     {
     	$this->mathcaptcha2 = $mathcaptcha2;
     }
@@ -786,7 +786,7 @@ class Log extends AbstractEntity
      * @param bool $mathcaptchaop
      * @return void
      */
-    public function setMathcaptchaop($mathcaptchaop)
+    public function setMathcaptchaop($mathcaptchaop): void
     {
     	$this->mathcaptchaop = $mathcaptchaop;
     }
@@ -817,7 +817,7 @@ class Log extends AbstractEntity
      * @param string $extras
      * @return void
      */
-    public function setExtras($extras)
+    public function setExtras($extras): void
     {
     	$this->extras = $extras;
     }
@@ -838,7 +838,7 @@ class Log extends AbstractEntity
      * @param bool $gdpr
      * @return void
      */
-    public function setGdpr($gdpr)
+    public function setGdpr($gdpr): void
     {
         $this->gdpr = $gdpr;
     }

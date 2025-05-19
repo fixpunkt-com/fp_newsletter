@@ -212,7 +212,7 @@ class LogRepository extends Repository
      * @param	array	$dmCatArr sys_category UIDs
      * @param   string  $table    tt_content or fe_users
      */
-    function insertIntoMm($tableUid, $dmCatArr = [], $table = 'tt_address')
+    function insertIntoMm($tableUid, $dmCatArr = [], $table = 'tt_address'): void
     {
         if (is_array($dmCatArr) && count($dmCatArr)>0) {
             $count = 0;
@@ -241,7 +241,7 @@ class LogRepository extends Repository
      * @param	integer	$tableUid user-uid
      * @param string $table tt_content or fe_users
      */
-    function deleteInMm($tableUid, $table = 'tt_address')
+    function deleteInMm($tableUid, $table = 'tt_address'): void
     {
         // alle Kategorie-Relationen löschen
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('sys_category_record_mm');
@@ -460,7 +460,7 @@ class LogRepository extends Repository
      * @param   string  $table      tt_address or fe_users
      * @param   string  $extension  luxletter or mail
      */
-    function deleteExternalUser($uid, $mode, $dmCatArr = [], $table = 'tt_address', $extension = 'luxletter')
+    function deleteExternalUser($uid, $mode, $dmCatArr = [], $table = 'tt_address', $extension = 'luxletter'): void
     {
         $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable($table);
         if ($mode == 2) {

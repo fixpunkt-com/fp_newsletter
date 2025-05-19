@@ -36,7 +36,7 @@ class LogControllerTest extends UnitTestCase
     /**
      * @test
      */
-    public function listActionFetchesAllLogsFromRepositoryAndAssignsThemToView()
+    public function listActionFetchesAllLogsFromRepositoryAndAssignsThemToView(): void
     {
 
         $allLogs = $this->getMockBuilder(ObjectStorage::class)
@@ -60,7 +60,7 @@ class LogControllerTest extends UnitTestCase
     /**
      * @test
      */
-    public function createActionAddsTheGivenLogToLogRepository()
+    public function createActionAddsTheGivenLogToLogRepository(): void
     {
         $log = new Log();
 
@@ -78,7 +78,7 @@ class LogControllerTest extends UnitTestCase
     /**
      * @test
      */
-    public function deleteActionRemovesTheGivenLogFromLogRepository()
+    public function deleteActionRemovesTheGivenLogFromLogRepository(): void
     {
         $log = new Log();
 

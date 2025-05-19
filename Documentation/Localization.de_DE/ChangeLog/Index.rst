@@ -266,3 +266,9 @@ Version 8.2.0:
 - Speichere immer settings.categoryOrGroup im Log-Eintrag.
 
 - Benutze die Kategorien/Gruppen vom Log-Eintrag, wenn settings.categoryOrGroup leer ist.
+
+Version 9.0.0:
+
+- Breaking: die PlugIns wurden von list_type nach CType geändert. Man muss den Upgrade Wizward ausführen, um seine PlugIns zu aktualisieren.
+
+- Deprecation fixes für PHP 8.4 und TYPO3 13.

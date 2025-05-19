@@ -269,3 +269,9 @@ Version 8.2.0:
 - Always save settings.categoryOrGroup in the log-entry.
 
 - Take the categories or groups from the log-entry when settings.categoryOrGroup is empty.
+
+Version 9.0.0:
+
+- Breaking: PlugIns changed from list_type to CType. You need to execute the Upgrade Wizard to change your PlugIns.
+
+- Deprecation fixes for PHP 8.4 and TYPO3 13.
