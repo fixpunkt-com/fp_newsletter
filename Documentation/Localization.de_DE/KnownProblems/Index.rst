@@ -20,5 +20,5 @@ anpassen und entweder den pi-Parameter hinzufügen, ändern oder entfernen bei f
 Seit Version 5.x werden E-Mail-Inhalte nicht übersetzt, wenn man settings.email.dontAppendL=1 setzt.
 
 Einen
-`Bug-Tracker <https://github.com/bihor/fp_newsletter/issues>`_
+`Bug-Tracker <https://github.com/fixpunkt-com/fp_newsletter/issues>`_
 für diese Extension findet man bei GitHub.

@@ -1,6 +1,6 @@
 # fp_newsletter
 
-Version 9.0.0
+Version 9.0.1
 
 The TYPO3 extension fp_newsletter is designed to provide a newsletter subscription and unsubscription service for the
 table tt_address which can be used by the extension mail OR for the table fe_users which can be used by luxletter or mail.
@@ -52,3 +52,6 @@ Version 8.2.1/2/3:
 Version 9.0.0:
 - Breaking: PlugIns changed from list_type to CType. You need to execute the Upgrade Wizard to change your PlugIns.
 - Deprecation fixes for PHP 8.4 and TYPO3 13.
+
+Version 9.0.1:
+- New home url: https://github.com/fixpunkt-com/fp_newsletter

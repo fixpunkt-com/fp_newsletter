@@ -19,5 +19,5 @@ and add, modify or delete the pi-parameter at a f:link.external or f:form.
 Since version 5.x the email content will not be translated when settings.email.dontAppendL=1 is set.
 
 A
-`bug tracker <https://github.com/bihor/fp_newsletter/issues>`_
+`bug tracker <https://github.com/fixpunkt-com/fp_newsletter/issues>`_
 is available for this project at GitHub.

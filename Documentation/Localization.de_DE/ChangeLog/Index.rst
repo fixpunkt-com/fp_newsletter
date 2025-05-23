@@ -272,3 +272,7 @@ Version 9.0.0:
 - Breaking: die PlugIns wurden von list_type nach CType geändert. Man muss den Upgrade Wizward ausführen, um seine PlugIns zu aktualisieren.
 
 - Deprecation fixes für PHP 8.4 und TYPO3 13.
+
+Version 9.0.1:
+
+- Neue Adresse bei GitHub: https://github.com/fixpunkt-com/fp_newsletter

@@ -275,3 +275,7 @@ Version 9.0.0:
 - Breaking: PlugIns changed from list_type to CType. You need to execute the Upgrade Wizard to change your PlugIns.
 
 - Deprecation fixes for PHP 8.4 and TYPO3 13.
+
+Version 9.0.1:
+
+- New home url: https://github.com/fixpunkt-com/fp_newsletter
