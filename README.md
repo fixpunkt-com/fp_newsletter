@@ -42,3 +42,7 @@ Version 7.1.2:
 - Edit-plugin changed: step 1 is now the default one.
 - Bugfix: unsubscription with captcha is enabled.
 - Bugfix for Luxletter unsubscription.
+
+Version 7.2.0:
+- Both update scripts (removed in 7.1.0) added again.
+- Math. captcha field is bigger now.
