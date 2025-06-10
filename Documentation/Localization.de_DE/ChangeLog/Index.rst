@@ -229,6 +229,22 @@ Version 7.1.0:
 
 - FlexformPluginUpdater (Update-Skript für FlexForms) entfernt. Benutze eine ältere Version, falls noch benötigt.
 
+Version 7.1.2:
+
+- Edit-plugin geändert: Schritt 1 ist nun der default.
+
+- Bugfix: Abmeldung aktiviertem Captcha.
+
+- Bugfix für Luxletter-Abmeldung.
+
+Version 7.2.0:
+
+- Beide Update-Skripte (entfernt in 7.1.0) wieder hinzugefügt.
+
+- Widget mit letzten Log-Einträgen entfernt!
+
+- Math. Captcha Feld ist nun größer.
+
 Version 8.0.0:
 
 - Erste beta Version für TYPO3 13.
@@ -276,3 +292,5 @@ Version 9.0.0:
 Version 9.0.1:
 
 - Neue Adresse bei GitHub: https://github.com/fixpunkt-com/fp_newsletter
+
+- Math. Captcha Feld ist nun größer.

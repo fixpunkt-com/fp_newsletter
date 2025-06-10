@@ -232,6 +232,22 @@ Version 7.1.0:
 
 - FlexformPluginUpdater (update script for FlexForms) removed. Use older versions if you still need it.
 
+Version 7.1.2:
+
+- Edit-plugin changed: step 1 is now the default one.
+
+- Bugfix: unsubscription with captcha is enabled.
+
+- Bugfix for Luxletter unsubscription.
+
+Version 7.2.0:
+
+- Both update scripts (removed in 7.1.0) added again.
+
+- Recent logs widget removed!
+
+- Math. captcha field is bigger now.
+
 Version 8.0.0:
 
 - First version for TYPO3 13.
@@ -279,3 +295,5 @@ Version 9.0.0:
 Version 9.0.1:
 
 - New home url: https://github.com/fixpunkt-com/fp_newsletter
+
+- Math. captcha field is bigger now.

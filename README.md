@@ -55,3 +55,4 @@ Version 9.0.0:
 
 Version 9.0.1:
 - New home url: https://github.com/fixpunkt-com/fp_newsletter
+- Math. captcha field is bigger now.
