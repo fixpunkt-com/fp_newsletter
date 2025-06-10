@@ -210,4 +210,6 @@ Version 7.1.2:
 Version 7.2.0:
 - Both update scripts (removed in 7.1.0) added again.
 
+- Recent logs widget removed!
+
 - Math. captcha field is bigger now.

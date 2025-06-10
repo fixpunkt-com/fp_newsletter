@@ -38,17 +38,8 @@ use Fixpunkt\FpNewsletter\Utility\HelpersUtility;
 class LogController extends ActionController
 {
 
-    /**
-     *
-     * @var ConfigurationManagerInterface
-     */
-    protected $configurationManager;
-
     /*
      * Constructor
-     * @param FrontendUserRepository $frontendUserRepository
-     * @param LogRepository $logRepository
-     * @param HelpersUtility $helpersUtility
      */
     public function __construct(protected FrontendUserRepository $frontendUserRepository, protected LogRepository $logRepository, protected HelpersUtility $helpersUtility)
     {
