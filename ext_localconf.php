@@ -259,6 +259,14 @@ call_user_func(
     	    ['source' => 'EXT:fp_newsletter/Resources/Public/Icons/fp_newsletter-plugin.png']
     	);
 
+        // Register switchableControllerActions plugin migrator
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['switchableControllerActionsPluginUpdaterFpNl']
+            = \Fixpunkt\FpNewsletter\Updates\SwitchableControllerActionsPluginUpdater::class;
+
+        // Register flexform plugin migrator
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['flexformPluginUpdaterFpNl']
+            = \Fixpunkt\FpNewsletter\Updates\FlexformPluginUpdater::class;
+
         /**
          * Fluid Namespace
          */
