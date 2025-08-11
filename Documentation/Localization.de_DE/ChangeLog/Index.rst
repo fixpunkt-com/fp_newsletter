@@ -294,3 +294,7 @@ Version 9.0.1:
 - Neue Adresse bei GitHub: https://github.com/fixpunkt-com/fp_newsletter
 
 - Math. Captcha Feld ist nun größer.
+
+Version 9.0.2:
+
+- Update-Skript für Rechte hinzugefügt.
