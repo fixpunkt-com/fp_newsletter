@@ -295,6 +295,8 @@ Version 9.0.1:
 
 - Math. Captcha Feld ist nun größer.
 
-Version 9.0.2:
+Version 9.0.3:
 
 - Update-Skript für Rechte hinzugefügt.
+
+- Dokumentation.

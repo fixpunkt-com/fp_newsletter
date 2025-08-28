@@ -6,4 +6,4 @@
 To-Do list
 ==========
 
-- Fix the problems with other languages.
+- Fix the problems with pi-parameters.

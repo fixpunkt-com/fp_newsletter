@@ -160,6 +160,68 @@ Achtung: auf der Abmeldeseite muss settings.categoryOrGroup auch z.B. auf 1 gese
 Achtung: das ganze wurde nicht mit der Bearbeiten-Seite getestet.
 
 
+.. _admin-routes:
+
+RouteEnhancer/Routes
+--------------------
+
+Man kann RouteEnhancer/Routes verwenden, um Verifikations- und Abmelde-Links zu verkürzen. Beispiel-Links::
+
+  https://www.example.org/newsletter/subscription-verify/add-1234-abcdef1234567890abcdef1234567890
+  https://www.example.org/newsletter/unsubscribe/remove-1234-abcdef1234567890abcdef1234567890
+
+Dafür fügt man das hier in die yaml-Datei ein (z.B. example_extension/Configuration/Routes/FpNewsletterSubscription.yaml)::
+
+    routeEnhancers:
+      FpNewsletterVerify:
+        type: Extbase
+        limitToPages: [10500] <-- Page-Id with plugin: "Newsletter: verify subscription"/'fpnewsletter_verify'
+        namespace: 'tx_fpnewsletter_verify'
+        routes:
+          - routePath: '/add-{uid}-{hash}'
+            _controller: 'Log::verify'
+            _arguments:
+              uid: 'uid'
+              hash: 'hash'
+        defaultController: 'Log::verify'
+        requirements:
+          uid: '[1-9][0-9]*'
+          hash: '[a-f0-9]{32}'
+
+      FpNewsletterUnsubscribe:
+        type: Extbase
+        limitToPages: [10214] <-- Page-Id with plugin: "Newsletter: unsubscribe via form"/'fpnewsletter_unsubscribe'
+        namespace: 'tx_fpnewsletter_unsubscribe'
+        routes:
+          - routePath: '/'
+            _controller: 'Log::unsubscribe'
+          - routePath: '/remove'
+            _controller: 'Log::delete'
+          - routePath: '/remove-{uid}-{hash}'
+            _controller: 'Log::verifyUnsubscribe'
+            _arguments:
+              uid: 'uid'
+              hash: 'hash'
+        defaultController: 'Log::unsubscribe'
+        requirements:
+          uid: '[1-9][0-9]*'
+          hash: '[a-f0-9]{32}'
+
+Und wenn man die Parameter von der cHash-Kalkulation ausschließen will,
+fügt man noch das hier zu settings-Datei (z.B. web_root/config/system/settings.php) hinzu::
+
+  'FE' => [
+    'cacheHash' => [
+      'excludedParameters' => [
+        …
+        '^tx_fpnewsletter_verify[',
+        '^tx_fpnewsletter_unsubscribe[',
+        …
+      ],
+    ],
+  ],
+
+
 .. _admin-note-mail:
 
 Anmerkung für die Mail-Extension
