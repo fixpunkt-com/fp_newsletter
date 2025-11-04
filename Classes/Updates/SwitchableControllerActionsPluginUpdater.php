@@ -18,8 +18,10 @@ use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 
-class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
+#[UpgradeWizard('switchableControllerActionsPluginUpdaterFpNl')]
+final class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
 {
     private const MIGRATION_SETTINGS = [
         [
@@ -196,8 +198,8 @@ class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
                     $queryBuilder->createNamedParameter($checkListTypes, Connection::PARAM_STR_ARRAY)
                 )
             )
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
     }
 
     protected function getTargetListType(string $sourceListType, string $switchableControllerActions): string
@@ -216,15 +218,17 @@ class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
     protected function getAllowedSettingsFromFlexForm(string $listType): array
     {
         $settings = [];
-        $flexFormFile = $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][$listType . ',list'];
-        if ($flexFormFile) {
-            $flexFormContent = file_get_contents(GeneralUtility::getFileAbsFileName(substr(trim((string) $flexFormFile), 5)));
-            $flexFormData = GeneralUtility::xml2array($flexFormContent);
+        if ($listType) {
+            $flexFormFile = $GLOBALS['TCA']['tt_content']['columns']['pi_flexform']['config']['ds'][$listType . ',list'];
+            if ($flexFormFile) {
+                $flexFormContent = file_get_contents(GeneralUtility::getFileAbsFileName(substr(trim((string)$flexFormFile), 5)));
+                $flexFormData = GeneralUtility::xml2array($flexFormContent);
 
-            // Iterate each sheet and extract all settings
-            foreach ($flexFormData['sheets'] as $sheet) {
-                foreach ($sheet['ROOT']['el'] as $setting => $tceForms) {
-                    $settings[] = $setting;
+                // Iterate each sheet and extract all settings
+                foreach ($flexFormData['sheets'] as $sheet) {
+                    foreach ($sheet['ROOT']['el'] as $setting => $tceForms) {
+                        $settings[] = $setting;
+                    }
                 }
             }
         }
@@ -246,7 +250,7 @@ class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
                     $queryBuilder->createNamedParameter($uid, Connection::PARAM_INT)
                 )
             )
-            ->execute();
+            ->executeStatement();
     }
 
     /**
@@ -271,7 +275,6 @@ class SwitchableControllerActionsPluginUpdater implements UpgradeWizardInterface
         ];
         $spaceInd = 4;
         $output = GeneralUtility::array2xml($input, '', 0, 'T3FlexForms', $spaceInd, $options);
-        $output = '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>' . LF . $output;
-        return $output;
+        return '<?xml version="1.0" encoding="utf-8" standalone="yes" ?>' . LF . $output;
     }
 }

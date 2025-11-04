@@ -17,8 +17,10 @@ use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 
-class FlexformPluginUpdater implements UpgradeWizardInterface
+#[UpgradeWizard('flexformPluginUpdaterFpNl')]
+final class FlexformPluginUpdater implements UpgradeWizardInterface
 {
     private const MIGRATION_SETTINGS = [
         [
@@ -117,7 +119,7 @@ class FlexformPluginUpdater implements UpgradeWizardInterface
                     $queryBuilder->expr()->eq('uid', $queryBuilder->createNamedParameter($record['uid'], Connection::PARAM_INT))
                 )
                 ->set('pi_flexform', $flexFormData)
-                ->execute();
+                ->executeStatement();
         }
 
         return true;
@@ -154,7 +156,7 @@ class FlexformPluginUpdater implements UpgradeWizardInterface
                     )
                 )
             )
-            ->execute()
-            ->fetchAll();
+            ->executeQuery()
+            ->fetchAllAssociative();
     }
 }
