@@ -220,8 +220,7 @@ class LogController extends ActionController
             $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
             $sys_language_uid = intval($languageAspect->getId());
             $requestLanguage = $this->request->getAttribute('language');
-            $requestLocale = $requestLanguage->getLocale();
-            $requestLanguageCode = $requestLocale->getLanguageCode();
+            $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
             if ($sys_language_uid > 0 && $this->settings['languageMode']) {
                 $log = $this->logRepository->getByEmailAndPid($email, $storagePidsArray, $sys_language_uid, $maxDate);
             } else {
@@ -276,8 +275,7 @@ class LogController extends ActionController
                     $log->setEmail($email);
                     $hash = $this->helpersUtility->setHashAndLanguage($log, intval($this->settings['languageMode']));
                     $requestLanguage = $this->request->getAttribute('language');
-                    $requestLocale = $requestLanguage->getLocale();
-                    $requestLanguageCode = $requestLocale->getLanguageCode();
+                    $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
                     $log->setStatus(10);
                     $this->logRepository->add($log);
                     $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
@@ -539,8 +537,7 @@ class LogController extends ActionController
         //if ($log->getGdpr()) { $log->setGdpr(true); }
         $pageArguments = $this->request->getAttribute('routing');
         $requestLanguage = $this->request->getAttribute('language');
-        $requestLocale = $requestLanguage->getLocale();
-        $requestLanguageCode = $requestLocale->getLanguageCode();
+        $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
         $hash = $this->helpersUtility->setHashAndLanguage($log, intval($this->settings['languageMode']));
         $log->setStatus(0);
         if ($log->getUid() > 0) {
@@ -933,8 +930,7 @@ class LogController extends ActionController
             }
             // zum testen: var_dump ($storagePidsArray);
             $requestLanguage = $this->request->getAttribute('language');
-            $requestLocale = $requestLanguage->getLocale();
-            $requestLanguageCode = $requestLocale->getLanguageCode();
+            $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
             $hash = $this->helpersUtility->setHashAndLanguage($log, intval($this->settings['languageMode']));
             $dbuidext = 0;
 
@@ -1128,8 +1124,7 @@ class LogController extends ActionController
         $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
         $sys_language_uid = intval($languageAspect->getId());
         $requestLanguage = $this->request->getAttribute('language');
-        $requestLocale = $requestLanguage->getLocale();
-        $requestLanguageCode = $requestLocale->getLanguageCode();
+        $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
         if (! $uid || ! $hash) {
             $this->view->assign('error', 1);
         } else {
@@ -1261,8 +1256,7 @@ class LogController extends ActionController
         $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
         $sys_language_uid = intval($languageAspect->getId());
         $requestLanguage = $this->request->getAttribute('language');
-        $requestLocale = $requestLanguage->getLocale();
-        $requestLanguageCode = $requestLocale->getLanguageCode();
+        $requestLanguageCode = $requestLanguage->getTwoLetterIsoCode();
         if (! $uid || ! $hash) {
             $this->view->assign('error', 1);
         } else {
