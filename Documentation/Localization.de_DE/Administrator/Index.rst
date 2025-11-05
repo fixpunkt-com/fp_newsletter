@@ -350,7 +350,7 @@ benutzt werden kann::
             /** @var ServerRequestInterface $request */
             $request = $GLOBALS['TYPO3_REQUEST'];
 
-            $pluginName = "tx_fpnewsletter_pi1";
+            $pluginName = "tx_fpnewsletter_new";
 
             // see if data was provided
             if(!key_exists($pluginName, $request -> getParsedBody()) || !is_array($request -> getParsedBody()[$pluginName])) {

@@ -326,7 +326,7 @@ this extension::
   Add xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" and replace YourVendor and YourExtension.
   Add <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
   and adapt it to your custom captcha extension. And set the TypoScript settings "site_key".
-  Note: the lines about shows you only an example for a "friendly captcha" solution.
+  Note: the lines above shows you only an example for a "friendly captcha" solution.
 
   Furthermore you need an event listener in your custom captcha extension. It may look like this::
 
@@ -356,7 +356,7 @@ this extension::
             /** @var ServerRequestInterface $request */
             $request = $GLOBALS['TYPO3_REQUEST'];
 
-            $pluginName = "tx_fpnewsletter_pi1";
+            $pluginName = "tx_fpnewsletter_new";
 
             // see if data was provided
             if(!key_exists($pluginName, $request -> getParsedBody()) || !is_array($request -> getParsedBody()[$pluginName])) {
