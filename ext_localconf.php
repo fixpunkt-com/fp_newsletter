@@ -1,14 +1,10 @@
 <?php
-use TYPO3\CMS\Core\Information\Typo3Version;
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
-
 defined('TYPO3') || die('Access denied.');
 
 call_user_func(
     function()
 	{
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'New',
             [
@@ -18,7 +14,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'new, create, verify'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Form',
             [
@@ -28,7 +24,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => ''
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Subscribeext',
             [
@@ -38,7 +34,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'subscribeExt, create, verify'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Verify',
             [
@@ -48,7 +44,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'verify'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Editemail',
             [
@@ -58,17 +54,17 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'editEmail'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Edit',
             [
-                \Fixpunkt\FpNewsletter\Controller\LogController::class => 'editEmail, edit, update'
+                \Fixpunkt\FpNewsletter\Controller\LogController::class => 'edit, update, editEmail'
             ],
             [
-                \Fixpunkt\FpNewsletter\Controller\LogController::class => 'editEmail, edit, update'
+                \Fixpunkt\FpNewsletter\Controller\LogController::class => 'edit, update, editEmail'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Unsubscribe',
             [
@@ -78,7 +74,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribe, delete, verifyUnsubscribe'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Unsubscribelux',
             [
@@ -88,7 +84,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribeLux, unsubscribe, delete, verifyUnsubscribe'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Unsubscribemail',
             [
@@ -98,7 +94,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribeMail, unsubscribe, delete, verifyUnsubscribe'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Verifyunsubscribe',
             [
@@ -108,7 +104,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'verifyUnsubscribe'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'Resend',
             [
@@ -118,7 +114,7 @@ call_user_func(
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'resend, verify'
             ]
         );
-        ExtensionUtility::configurePlugin(
+        \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
             'FpNewsletter',
             'List',
             [
@@ -129,130 +125,127 @@ call_user_func(
             ]
         );
 
-        // wizards
-        if ((new Typo3Version())->getMajorVersion() < 13) {
-            // @extensionScannerIgnoreLine
-            \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-'mod {
-    wizards.newContentElement.wizardItems.fpnl {
-        header = fp_newsletter
-        elements {
-            fpnewsletter_new {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.new
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_new
-                }
-            }
-            fpnewsletter_form {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.form
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_form
-                }
-            }
-            fpnewsletter_subscribeext {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.subscribeext
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_subscribeext
-                }
-            }
-            fpnewsletter_verify {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.verify
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_verify
-                }
-            }
-            fpnewsletter_editemail {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.editemail
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_editemail
-                }
-            }
-            fpnewsletter_edit {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.edit
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_edit
-                }
-            }
-            fpnewsletter_unsubscribe {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribe
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_unsubscribe
-                }
-            }
-            fpnewsletter_unsubscribelux {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribelux
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_unsubscribelux
-                }
-            }
-            fpnewsletter_unsubscribemail {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribemail
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_unsubscribemail
-                }
-            }
-            fpnewsletter_verifyunsubscribe {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.verifyunsubscribe
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_verifyunsubscribe
-                }
-            }
-            fpnewsletter_resend {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.resend
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_resend
-                }
-            }
-            fpnewsletter_list {
-                iconIdentifier = fp_newsletter-plugin-pi1
-                title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.list
-                description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
-                tt_content_defValues {
-                    CType = list
-                    list_type = fpnewsletter_list
-                }
-            }
-        }
-        show = *
-    }
-}'
-            );
-        }
-
+    	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
+    		'mod {
+    			wizards.newContentElement.wizardItems.fpnl {
+        			header = fp_newsletter
+    				elements {
+    					fpnewsletter_new {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.new
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_new
+    						}
+    					}
+    					fpnewsletter_form {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.form
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_form
+    						}
+    					}
+    					fpnewsletter_subscribeext {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.subscribeext
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_subscribeext
+    						}
+    					}
+    					fpnewsletter_verify {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.verify
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_verify
+    						}
+    					}
+    					fpnewsletter_editemail {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.editemail
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_editemail
+    						}
+    					}
+    					fpnewsletter_edit {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.edit
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_edit
+    						}
+    					}
+    					fpnewsletter_unsubscribe {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribe
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_unsubscribe
+    						}
+    					}
+    					fpnewsletter_unsubscribelux {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribelux
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_unsubscribelux
+    						}
+    					}
+    					fpnewsletter_unsubscribemail {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.unsubscribemail
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_unsubscribemail
+    						}
+    					}
+    					fpnewsletter_verifyunsubscribe {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.verifyunsubscribe
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_verifyunsubscribe
+    						}
+    					}
+    					fpnewsletter_resend {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.resend
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_resend
+    						}
+    					}
+    					fpnewsletter_list {
+    						iconIdentifier = fp_newsletter-plugin-pi1
+    						title = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:template.list
+    						description = LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fp_newsletter_domain_model_pi1.description
+    						tt_content_defValues {
+    							CType = list
+    							list_type = fpnewsletter_list
+    						}
+    					}
+    				}
+    				show = *
+    			}
+    	   }'
+    	);
+    	
     	$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+    	
     	$iconRegistry->registerIcon(
     	    'fp_newsletter-plugin-pi1',
     	    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
