@@ -298,10 +298,12 @@ Version 9.0.1:
 
 - Math. captcha field is bigger now.
 
-Version 9.0.4:
+Version 9.0.5:
 
 - Update script for permissions added.
 
 - Bugfix: LocalizationUtility not found.
+
+- Bugfix: error fixed when language-uid is -1.
 
 - Documentation.

@@ -38,7 +38,9 @@ class GetActionUrlViewHelper extends AbstractViewHelper
         try {
             $language = 0;
             if (isset($this->arguments['languageUid'])) {
-                $language = intval($this->arguments['languageUid']);
+                if (intval($this->arguments['languageUid']) > 0) {
+                    $language = intval($this->arguments['languageUid']);
+                }
             }
             $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->arguments['pageUid']);
             $uri = $site->getRouter()->generateUri($this->arguments['pageUid'], [
