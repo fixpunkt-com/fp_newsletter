@@ -299,4 +299,6 @@ Version 9.0.3:
 
 - Update-Skript für Rechte hinzugefügt.
 
+- Bugfix: LocalizationUtility wurde nicht gefunden.
+
 - Dokumentation.
