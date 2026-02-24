@@ -26,14 +26,17 @@ Es gibt auch ein Widget fürs Dashboard.
 Verfügbare Sprachen: englisch, deutsch, französisch und italienisch.
 Die Standard-Sprache ist deutsch, aber man kann auch andere Sprachen benutzen.
 
+Eine 2. Möglichkeit wäre, diese Extension als Umfrage-Extension zu verwenden.
+Ein Benutzer könnte dann mit seiner E-Mail-Adresse für eine oder mehrere Kategorien abstimmen!
+
 Achtung!
 ^^^^^^^^
 
 Diese Extension wurde nicht für multiple Newsletter-Kategorien designed. Man kann sich zwar zu mehreren Kategorien
 anmelden, aber es ist nicht möglich, sich nur von speziellen Kategorien abzumelden (bei der Abmeldung)!
 Der komplette Abonnent wird bei der Abmeldung gelöscht, sodass man sich nicht nur von einem speziellen Newsletter abmelden kann.
-Allerdings ist seit Version 4.1.0 eine Bearbeitung der Newsletter-Daten möglich! Im Bearbeiten-Formular stehen alle
-möglichen Kategorien zur Auswahl verfügbar.
+Allerdings ist seit Version 4.1.0 eine Bearbeitung der Newsletter-Daten möglich!
+Im Bearbeiten-Formular stehen alle möglichen Kategorien zur Auswahl zur verfügung.
 
 Achtung!
 ^^^^^^^^
