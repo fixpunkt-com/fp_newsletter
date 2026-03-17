@@ -1419,6 +1419,8 @@ class LogController extends ActionController
         if (! $from) {
             $from = 'Subscriber';
         }
+        $senderMail = !$settings['email']['senderMail'] ? \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromAddress() : $settings['email']['senderMail'];
+        $senderName = !$settings['email']['senderName'] ? \TYPO3\CMS\Core\Utility\MailUtility::getSystemFromName() : $settings['email']['senderName'];
         $dataArray = [];
         $dataArray['language_code'] = $requestLocale->getLanguageCode();
         $dataArray['uid'] = $log->getUid();
@@ -1514,7 +1516,7 @@ class LogController extends ActionController
             } else {
                 $this->helpersUtility->sendTemplateEmail(
                     [$email => $from],
-                    [$settings['email']['senderMail'] => $settings['email']['senderName']],
+                    [$senderMail => $senderName],
                     $subject,
                     $emailBodyHtml,
                     $emailBodyText);
@@ -1570,7 +1572,7 @@ class LogController extends ActionController
             } else {
                 $this->helpersUtility->sendTemplateEmail(
                     [$settings['email']['adminMail'] => $settings['email']['adminName']],
-                    [$settings['email']['senderMail'] => $settings['email']['senderName']],
+                    [$senderMail => $senderName],
                     $subject,
                     $emailBodyHtml,
                     $emailBodyText);

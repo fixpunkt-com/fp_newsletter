@@ -61,8 +61,8 @@ gender.mr                         string      Text für Herr                    
 gender.mrs                        string      Text für Frau                                                             Frau
 parameters.active                 string      Parameter für Anmeldung aus externer Extension (POST-Parameter)
 parameters.email                  string      Parameter für die E-Mail externer Herkunft (GET/POST-Parameter)
-email.senderMail                  string      E-Mail-Adresse des Absenders                                              beispiel@test.de
-email.senderName                  string      Absender-Name                                                             Absender-Name
+email.senderMail                  string      E-Mail-Adresse des Absenders                                              SystemFromAddress()
+email.senderName                  string      Absender-Name                                                             SystemFromName()
 email.subscribeVerifySubject      string      Betreff der Verifikations-E-Mail (Anmeldung)                              Bitte verifizieren ...
 email.unsubscribeVerifySubject    string      Betreff der Verifikations-E-Mail (Abmeldung)                              Bitte verifizieren ...
 email.adminMail                   string      Admin E-Mail-Adresse - wenn nicht leer: der Admin wird informiert

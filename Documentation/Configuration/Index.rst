@@ -62,8 +62,8 @@ gender.mr                         string      Text for the gender mr            
 gender.mrs                        string      Text for the gender mrs                                                   Frau
 parameters.active                 string      Parameter for newsletter subscription in external extension (POST)
 parameters.email                  string      Parameter for the email from external source (GET/POST-parameter)
-email.senderMail                  string      Your email-address                                                        beispiel@test.de
-email.senderName                  string      Your name                                                                 Absender-Name
+email.senderMail                  string      Your email-address                                                        SystemFromAddress()
+email.senderName                  string      Your name                                                                 SystemFromName()
 email.subscribeVerifySubject      string      Subject of the verify email (subscription)                                Bitte verifizieren ...
 email.unsubscribeVerifySubject    string      Subject of the verify email (unsubscription)                              Bitte verifizieren ...
 email.adminMail                   string      Admin email-address - if not empty: an email goes to an admin too

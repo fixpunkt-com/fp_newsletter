@@ -24,7 +24,7 @@ Newsletter subscriber management
 		newsletter,subscription,unsubscription,verify,gdpr,mail,luxletter
 
 	:Copyright:
-		2023
+		2026
 
 	:Author:
 		Kurt Gusbeth

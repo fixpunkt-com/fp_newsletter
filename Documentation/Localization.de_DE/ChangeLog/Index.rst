@@ -304,3 +304,7 @@ Version 9.0.5:
 - Bugfix: Fehler gefixt wenn language-uid ist -1.
 
 - Dokumentation.
+
+Version 9.1.0:
+
+- Sender-Name und Sender-E-Mail sind nun optional.

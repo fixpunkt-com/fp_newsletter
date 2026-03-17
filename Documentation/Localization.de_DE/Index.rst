@@ -25,7 +25,7 @@ Newsletter-Abonnenten-Management
 		tt_address,mail,luxletter,newsletter,subscription,unsubscription,dsgvo,gdpr
 
 	:Copyright:
-		2025
+		2026
 
 	:Autor:
 		Kurt Gusbeth

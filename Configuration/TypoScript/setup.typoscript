@@ -66,8 +66,8 @@ plugin.tx_fpnewsletter {
       authcode =
     }
     email {
-      senderMail = info@example.org
-      senderName = Absender-Name
+      senderMail =
+      senderName =
       adminMail =
       adminName = Admin
       adminMailBeforeVerification = 0

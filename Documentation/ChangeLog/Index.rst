@@ -307,3 +307,7 @@ Version 9.0.5:
 - Bugfix: error fixed when language-uid is -1.
 
 - Documentation.
+
+Version 9.1.0:
+
+- Sender-name and sender-mail is now optional.
