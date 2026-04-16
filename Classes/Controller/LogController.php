@@ -7,7 +7,6 @@ namespace Fixpunkt\FpNewsletter\Controller;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Mvc\Exception\StopActionException;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
 use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
@@ -542,7 +541,6 @@ class LogController extends ActionController
      *
      * @param Log|null $log
      * @return ResponseInterface
-     * @throws StopActionException
      * @throws SiteNotFoundException
      */
     public function createAction(?Log $log = null): ResponseInterface

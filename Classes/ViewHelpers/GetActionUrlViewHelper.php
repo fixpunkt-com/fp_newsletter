@@ -42,8 +42,8 @@ class GetActionUrlViewHelper extends AbstractViewHelper
                     $language = intval($this->arguments['languageUid']);
                 }
             }
-            $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId($this->arguments['pageUid']);
-            $uri = $site->getRouter()->generateUri($this->arguments['pageUid'], [
+            $site = GeneralUtility::makeInstance(SiteFinder::class)->getSiteByPageId((int) $this->arguments['pageUid']);
+            $uri = $site->getRouter()->generateUri((int) $this->arguments['pageUid'], [
                 'tx_fpnewsletter_' . $this->arguments['pi'] => [
                     'controller' => 'Log',
                     'action' => $this->arguments['action'],

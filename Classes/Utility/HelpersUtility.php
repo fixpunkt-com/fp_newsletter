@@ -2,6 +2,7 @@
 
 namespace Fixpunkt\FpNewsletter\Utility;
 
+use Throwable;
 use TYPO3\CMS\Core\Context\Context;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Utility\LocalizationUtility;
@@ -211,20 +212,31 @@ class HelpersUtility
     {
         /** @var $message \TYPO3\CMS\Core\Mail\MailMessage */
         $message = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\MailMessage::class);
+        $mailer = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Mail\Mailer::class);
+        $email1 = $email2 = $name1 = $name2 = '';
         foreach ($recipient as $key => $value) {
-            $email = $key;
-            $name = $value;
+            $email1 = $key;
+            $name1 = $value;
         }
-        $message->to(new \Symfony\Component\Mime\Address($email, $name));
         foreach ($sender as $key => $value) {
-            $email = $key;
-            $name = $value;
+            $email2 = $key;
+            $name2 = $value;
         }
-        $message->from(new \Symfony\Component\Mime\Address($email, $name));
-        $message->subject($subject);
-        $message->text($emailBodyText);
-        $message->html($emailBodyHtml);
-        $message->send();
-        return $message->isSent();
+        try {
+            $message->to(new \Symfony\Component\Mime\Address($email1, $name1));
+            $message->from(new \Symfony\Component\Mime\Address($email2, $name2));
+            $message->subject($subject);
+            $message->text($emailBodyText);
+            $message->html($emailBodyHtml);
+            $mailer->send($message);
+        } catch (Throwable) {
+            throw new \RuntimeException(
+                'Could not build a valid email with sender "' .$name2 . ' => ' . $email2 . '" and recipient "'
+                . $name1 . ' => ' . $email1 . '".',
+                5588995479
+            );
+        }
+        return true;
+        //return $message->isSent();
     }
 }

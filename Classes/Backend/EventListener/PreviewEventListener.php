@@ -10,7 +10,8 @@ use TYPO3\CMS\Backend\View\Event\PageContentPreviewRenderingEvent;
 use TYPO3\CMS\Core\Imaging\Icon;
 use TYPO3\CMS\Core\Imaging\IconFactory;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Lang\LanguageService;
+use TYPO3\CMS\Core\Localization\LanguageService;
+
 
 final class PreviewEventListener
 {
@@ -117,13 +118,13 @@ final class PreviewEventListener
             return;
         }
 
-        if (in_array($event->getRecord()['CType'], $this->pis)) {
+        if (in_array($event->getRecordType(), $this->pis)) {
             $this->tableData = [];
-            $pi = substr((string) $event->getRecord()['list_type'], strpos((string) $event->getRecord()['list_type'], '_')+1);
+            $pi = substr((string) $event->getRecordType(), strpos((string) $event->getRecordType(), '_')+1);
             $header = '<strong>' . htmlspecialchars((string) $this->getLanguageService()->sL(self::LLPATH . 'template.' . $pi)) . '</strong>';
-            $this->flexformData = GeneralUtility::xml2array($event->getRecord()['pi_flexform']);
-
-            $this->getStartingPoint($event->getRecord()['pages']);
+            $record = $event->getRecord()->getRawRecord()->toArray();
+            $this->flexformData = GeneralUtility::xml2array($record['pi_flexform']);
+            $this->getStartingPoint($record['pages']);
 
             if (is_array($this->flexformData)) {
                 foreach ($this->recordMapping as $fieldName => $fieldConfiguration) {
@@ -137,7 +138,7 @@ final class PreviewEventListener
                     }
                 }
             }
-            $event->setPreviewContent($this->renderSettingsAsTable($header, $event->getRecord()['uid']));
+            $event->setPreviewContent($this->renderSettingsAsTable($header, $record['uid']));
         }
     }
 
