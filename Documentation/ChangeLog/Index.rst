@@ -311,3 +311,7 @@ Version 9.0.5:
 Version 9.1.0:
 
 - Sender-name and sender-mail is now optional.
+
+Version 10.0.0:
+
+- First version for TYPO3 14.
