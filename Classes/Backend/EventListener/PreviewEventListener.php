@@ -119,7 +119,7 @@ final class PreviewEventListener
 
         if (in_array($event->getRecord()['CType'], $this->pis)) {
             $this->tableData = [];
-            $pi = substr((string) $event->getRecord()['list_type'], strpos((string) $event->getRecord()['list_type'], '_')+1);
+            $pi = substr((string) $event->getRecord()['CType'], strpos((string) $event->getRecord()['CType'], '_')+1);
             $header = '<strong>' . htmlspecialchars((string) $this->getLanguageService()->sL(self::LLPATH . 'template.' . $pi)) . '</strong>';
             $this->flexformData = GeneralUtility::xml2array($event->getRecord()['pi_flexform']);
 
