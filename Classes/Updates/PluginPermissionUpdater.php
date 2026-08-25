@@ -8,13 +8,13 @@ use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
-use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
-#[UpgradeWizard('fpNewsletterPluginPermissionUpdater')]
-class PluginPermissionUpdater implements UpgradeWizardInterface
+#[\TYPO3\CMS\Core\Attribute\UpgradeWizard('fpNewsletterPluginPermissionUpdater')]
+class PluginPermissionUpdater implements \TYPO3\CMS\Core\Upgrades\UpgradeWizardInterface
 {
+    public function __construct(private readonly \TYPO3\CMS\Core\Database\ConnectionPool $connectionPool)
+    {
+    }
     public function getTitle(): string
     {
         return 'EXT:fp_newsletter: Migrate plugin permissions';
@@ -29,7 +29,7 @@ class PluginPermissionUpdater implements UpgradeWizardInterface
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class,
+            \TYPO3\CMS\Core\Upgrades\DatabaseUpdatedPrerequisite::class,
         ];
     }
 

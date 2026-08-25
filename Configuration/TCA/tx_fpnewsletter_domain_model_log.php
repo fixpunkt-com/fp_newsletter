@@ -15,7 +15,6 @@ return [
         'security' => [
             'ignorePageTypeRestriction' => true,
         ],
-        'searchFields' => 'gender,title,firstname,lastname,email,status,securityhash',
         'iconfile' => 'EXT:fp_newsletter/Resources/Public/Icons/tx_fpnewsletter_domain_model_log.gif'
     ],
     'types' => [
@@ -73,7 +72,8 @@ return [
                 ],
                 'behaviour' => [
                     'allowLanguageSynchronization' => true
-                ]
+                ],
+                'searchable' => false
             ],
         ],
         'gender' => [
@@ -137,7 +137,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'zip' => [
@@ -146,7 +147,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'city' => [
@@ -155,7 +157,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'region' => [
@@ -164,7 +167,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'country' => [
@@ -173,7 +177,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'phone' => [
@@ -182,7 +187,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'mobile' => [
@@ -191,7 +197,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'fax' => [
@@ -200,7 +207,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'www' => [
@@ -209,7 +217,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'position' => [
@@ -218,7 +227,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'company' => [
@@ -227,7 +237,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'categories' => [
@@ -236,7 +247,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'status' => [
@@ -279,7 +291,8 @@ return [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 5,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ]
         ],
         'mathcaptcha' => [
@@ -288,7 +301,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 5,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'gdpr' => [
@@ -311,7 +325,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'nl_table' => [
@@ -320,7 +335,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'cg_table' => [
@@ -329,7 +345,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
         'ex_uid' => [
@@ -338,7 +355,8 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 10,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'searchable' => false
             ],
         ],
     ],

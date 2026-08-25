@@ -43,7 +43,7 @@ class LogController extends ActionController
     /**
      * Constructor
      */
-    public function __construct(protected FrontendUserRepository $frontendUserRepository, protected LogRepository $logRepository, protected HelpersUtility $helpersUtility, private ViewFactoryInterface $viewFactory)
+    public function __construct(protected FrontendUserRepository $frontendUserRepository, protected LogRepository $logRepository, protected HelpersUtility $helpersUtility, private ViewFactoryInterface $viewFactory, private readonly \TYPO3\CMS\Core\Context\Context $context, private readonly \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager)
     {
     }
 
@@ -225,7 +225,7 @@ class LogController extends ActionController
         if ($email && $subscribeVerifyUid) {
             $maxDate = time() - 86400 * $this->settings['daysExpire'];
             $storagePidsArray = $this->logRepository->getStoragePids();
-            $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+            $languageAspect = $this->context->getAspect('language');
             $sys_language_uid = intval($languageAspect->getId());
             if ($sys_language_uid > 0 && $this->settings['languageMode']) {
                 $log = $this->logRepository->getByEmailAndPid($email, $storagePidsArray, $sys_language_uid, $maxDate);
@@ -288,7 +288,7 @@ class LogController extends ActionController
                     $hash = $this->helpersUtility->setHashAndLanguage($log, intval($this->settings['languageMode']));
                     $log->setStatus(10);
                     $this->logRepository->add($log);
-                    $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+                    $persistenceManager = $this->persistenceManager;
                     $persistenceManager->persistAll();
                     $error = 51;
                     $this->prepareEmail($log, false, false, true,true, false, $hash, intval($this->settings['editUid']), 'email');
@@ -355,7 +355,7 @@ class LogController extends ActionController
         $own_groups = [];
         $uid = intval($this->request->hasArgument('uid')) ? $this->request->getArgument('uid') : 0;
         $hash = ($this->request->hasArgument('hash')) ? $this->request->getArgument('hash') : '';
-        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $languageAspect = $this->context->getAspect('language');
         $sys_language_uid = intval($languageAspect->getId());
         if (! $uid || ! $hash) {
             $this->view->assign('error', 1);
@@ -559,7 +559,7 @@ class LogController extends ActionController
         } else {
             $this->logRepository->add($log);
         }
-        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+        $persistenceManager = $this->persistenceManager;
         $persistenceManager->persistAll();
 
         $error = 0;
@@ -1057,7 +1057,7 @@ class LogController extends ActionController
             } else {
                 $this->logRepository->add($log);
             }
-            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+            $persistenceManager = $this->persistenceManager;
             $persistenceManager->persistAll();
         }
 
@@ -1139,7 +1139,7 @@ class LogController extends ActionController
         $dmCat = str_replace(' ', '', (string) $this->settings['categoryOrGroup']);
         $uid = intval($this->request->hasArgument('uid')) ? $this->request->getArgument('uid') : 0;
         $hash = ($this->request->hasArgument('hash')) ? $this->request->getArgument('hash') : '';
-        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $languageAspect = $this->context->getAspect('language');
         $sys_language_uid = intval($languageAspect->getId());
         if (! $uid || ! $hash) {
             $this->view->assign('error', 1);
@@ -1230,7 +1230,7 @@ class LogController extends ActionController
                                 $log->setCgTable('fe_groups');
                             }
                             $this->frontendUserRepository->add($frontendUser);
-                            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+                            $persistenceManager = $this->persistenceManager;
                             $persistenceManager->persistAll();
                             $success = 1;
                             $tableUid = $frontendUser->getUid();
@@ -1245,7 +1245,7 @@ class LogController extends ActionController
                         } else {
                             $log->setStatus(2);
                             $this->logRepository->update($log);
-                            $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+                            $persistenceManager = $this->persistenceManager;
                             $persistenceManager->persistAll();
                             if (($this->settings['email']['adminMail'] && ! $this->settings['email']['adminMailBeforeVerification']) || $this->settings['email']['enableConfirmationMails']) {
                                 $toAdmin = ($this->settings['email']['adminMail'] && !$this->settings['email']['adminMailBeforeVerification']);
@@ -1282,7 +1282,7 @@ class LogController extends ActionController
         $dbuid = 0;
         $uid = intval($this->request->hasArgument('uid')) ? $this->request->getArgument('uid') : 0;
         $hash = ($this->request->hasArgument('hash')) ? $this->request->getArgument('hash') : '';
-        $languageAspect = GeneralUtility::makeInstance(Context::class)->getAspect('language');
+        $languageAspect = $this->context->getAspect('language');
         $sys_language_uid = intval($languageAspect->getId());
         if (! $uid || ! $hash) {
             $this->view->assign('error', 1);
@@ -1313,7 +1313,7 @@ class LogController extends ActionController
                         $log->setNlTable($this->settings['table']);
                         $log->setNlExtension($this->settings['newsletterExtension']);
                         $this->logRepository->update($log);
-                        $persistenceManager = GeneralUtility::makeInstance(PersistenceManager::class);
+                        $persistenceManager = $this->persistenceManager;
                         $persistenceManager->persistAll();
 
                         if ($this->settings['table'] == 'tt_address' || $this->settings['table'] == 'fe_users') {

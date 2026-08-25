@@ -303,7 +303,7 @@ Diese Extension stellt ein Validate-Event zur Verfügung, welches im New.html Te
 benutzt werden kann::
 
   <html xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" xmlns:f="https://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-    ...
+    xxx
     <f:form action="create" name="log" pluginName="new" object="{log}">
 		<f:render partial="Log/FormFields" arguments="{_all}" />
 		<fp:form.friendlyCaptcha name="captcha_solution">
@@ -313,15 +313,15 @@ benutzt werden kann::
 			<f:form.submit value="{f:translate(key: 'subscribe', default: 'subscribe')}" class="btn btn-primary" />
 		</div>
 	</f:form>
-    ...
+    xxx
   </html>
 
-  Füge xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" hinzu und ersetzte YourVendor und YourExtension.
-  Füge <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
-  hinzu und passe es an deine Extension an. Füge die TypoScript settings "site_key" hinzu.
-  Bemerkung: diese Zeilen zeigen nur ein Beispiel für eine "friendly captcha" Lösung.
+Füge xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" hinzu und ersetzte YourVendor und YourExtension.
+Füge <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
+hinzu und passe es an deine Extension an. Füge die TypoScript settings "site_key" hinzu.
+Bemerkung: diese Zeilen zeigen nur ein Beispiel für eine "friendly captcha" Lösung.
 
-  Weiterhin braucht man einen Event-Listener in der eigenen Captcha-Extension. Er sollte so in etwa aussehen::
+Weiterhin braucht man einen Event-Listener in der eigenen Captcha-Extension. Er sollte so in etwa aussehen::
 
     use YourVendor\YourExtension\Services\CaptchaService;
     use Fixpunkt\FpNewsletter\Events\ValidateEvent;

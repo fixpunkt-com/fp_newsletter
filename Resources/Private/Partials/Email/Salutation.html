@@ -4,7 +4,7 @@
             <f:translate key="email.dear-gender-first-and-last-name" arguments="{0: gender, 1: firstname, 2: lastname}" extensionName="FpNewsletter" languageKey="{language_code}" />
         </f:then>
         <f:else if="{lastname}">
-            <f:translate key="email.dear-first-and-last-name" arguments="{1: firstname, 2: lastname}" extensionName="FpNewsletter" languageKey="{language_code}" />
+            <f:translate key="email.dear-first-and-last-name" arguments="{0: firstname, 1: lastname}" extensionName="FpNewsletter" languageKey="{language_code}" />
         </f:else>
         <f:else>
             <f:translate key="email.dear" extensionName="FpNewsletter" languageKey="{language_code}" />

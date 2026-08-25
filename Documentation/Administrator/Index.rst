@@ -323,12 +323,12 @@ this extension::
     ...
   </html>
 
-  Add xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" and replace YourVendor and YourExtension.
-  Add <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
-  and adapt it to your custom captcha extension. And set the TypoScript settings "site_key".
-  Note: the lines above shows you only an example for a "friendly captcha" solution.
+Add xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" and replace YourVendor and YourExtension.
+Add <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
+and adapt it to your custom captcha extension. And set the TypoScript settings "site_key".
+Note: the lines above shows you only an example for a "friendly captcha" solution.
 
-  Furthermore you need an event listener in your custom captcha extension. It may look like this::
+Furthermore you need an event listener in your custom captcha extension. It may look like this::
 
     use YourVendor\YourExtension\Services\CaptchaService;
     use Fixpunkt\FpNewsletter\Events\ValidateEvent;

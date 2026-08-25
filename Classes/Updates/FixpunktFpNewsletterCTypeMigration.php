@@ -4,11 +4,8 @@ declare(strict_types=1);
 
 namespace Fixpunkt\FpNewsletter\Updates;
 
-use TYPO3\CMS\Install\Attribute\UpgradeWizard;
-use TYPO3\CMS\Install\Updates\AbstractListTypeToCTypeUpdate;
-
-#[UpgradeWizard('fixpunktFpNewsletterCTypeMigration')]
-final class FixpunktFpNewsletterCTypeMigration extends AbstractListTypeToCTypeUpdate
+#[\TYPO3\CMS\Core\Attribute\UpgradeWizard('fixpunktFpNewsletterCTypeMigration')]
+final class FixpunktFpNewsletterCTypeMigration extends \TYPO3\CMS\Core\Upgrades\AbstractListTypeToCTypeUpdate
 {
     public function getTitle(): string
     {

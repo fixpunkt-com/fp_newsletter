@@ -16,8 +16,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'new, create, verify'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -27,8 +26,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => ''
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -38,8 +36,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'subscribeExt, create, verify'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -49,8 +46,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'verify'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -60,8 +56,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'editEmail'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -71,8 +66,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'editEmail, edit, update'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -82,8 +76,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribe, delete, verifyUnsubscribe'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -93,8 +86,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribeLux, unsubscribe, delete, verifyUnsubscribe'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -104,8 +96,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'unsubscribeMail, unsubscribe, delete, verifyUnsubscribe'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -115,8 +106,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'verifyUnsubscribe'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -126,8 +116,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => 'resend, verify'
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
         ExtensionUtility::configurePlugin(
             'FpNewsletter',
@@ -137,8 +126,7 @@ call_user_func(
             ],
             [
                 \Fixpunkt\FpNewsletter\Controller\LogController::class => ''
-            ],
-            \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+            ]
         );
 
         /**

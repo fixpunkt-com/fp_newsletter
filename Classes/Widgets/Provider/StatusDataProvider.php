@@ -46,7 +46,7 @@ class StatusDataProvider implements ChartDataProviderInterface
             'labels' => $this->labels,
             'datasets' => [
                 [
-                    'label' => $this->getLanguageService()->sL('LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_be.xlf:dashboard.widget.fixpunktLogStatus.label'),
+                    'label' => $this->getLanguageService()->sL('fp_newsletter.be:dashboard.widget.fixpunktLogStatus.label'),
                     'backgroundColor' => WidgetApi::getDefaultChartColors()[0],
                     'border' => 0,
                     'data' => $this->data,
@@ -68,7 +68,7 @@ class StatusDataProvider implements ChartDataProviderInterface
             ->fetchAllAssociative();
 
         foreach ($entries as $entry) {
-            $this->labels[] = $this->getLanguageService()->sL('LLL:EXT:fp_newsletter/Resources/Private/Language/locallang_db.xlf:tx_fpnewsletter_domain_model_log.status.'.$entry['status']);
+            $this->labels[] = $this->getLanguageService()->sL('fp_newsletter.db:tx_fpnewsletter_domain_model_log.status.');
             $this->data[] = $entry['num'];
         }
     }
