@@ -1,0 +1,21 @@
+settings:
+  plugin.tx_fpnewsletter.view.templateRootPath:
+    label: 'Path to template root (FE)'
+    description: 'Default path'
+    type: string
+    default: 'EXT:fp_newsletter/Resources/Private/Templates/'
+  plugin.tx_fpnewsletter.view.partialRootPath:
+    label: 'Path to template partials (FE)'
+    description: 'Default path'
+    type: string
+    default: 'EXT:fp_newsletter/Resources/Private/Partials/'
+  plugin.tx_fpnewsletter.view.layoutRootPath:
+    label: 'Path to template layouts (FE)'
+    description: 'Default path'
+    type: string
+    default: 'EXT:fp_newsletter/Resources/Private/Layouts/'
+  plugin.tx_fpnewsletter.persistence.storagePid:
+    label: 'Default storage PID'
+    description: 'Default storage PID'
+    type: string
+    default: ''
