@@ -4,19 +4,30 @@
 <div style="display:none;">
 <f:flashMessages />
 </div>
-<f:if condition="{error} > 0">
-	<f:if condition="{error} == 1">
-		<p class="alert alert-danger">{f:translate(key: 'wrong_parameters', default: 'wrong parameters')}</p>
-	</f:if>
-	<f:if condition="{error} == 8">
-		<p class="alert alert-danger">{f:translate(key: 'wrong_email', default: 'ivalid email')}</p>
-	</f:if>
-	<f:if condition="{error} == 9">
-		<p class="alert alert-danger">{f:translate(key: 'wrong_captcha', default: 'ivalid captcha')}</p>
-	</f:if>
-	<f:if condition="{error} == 10">
-		<p class="alert alert-danger">{f:translate(key: 'wrong_honeypot', default: 'spam detected')}</p>
-	</f:if>
+<f:if condition="{error_msg}">
+	<f:then>
+		<p class="alert alert-danger">{f:translate(key: error_msg, default: error_msg)}</p>
+	</f:then>
+	<f:else>
+		<f:if condition="{error} > 0">
+			<f:if condition="{error} == 1">
+				<p class="alert alert-danger">{f:translate(key: 'wrong_parameters', default: 'wrong parameters')}</p>
+			</f:if>
+			<f:if condition="{error} == 8">
+				<p class="alert alert-danger">{f:translate(key: 'wrong_email', default: 'ivalid email')}</p>
+			</f:if>
+			<f:if condition="{error} == 9">
+				<p class="alert alert-danger">{f:translate(key: 'wrong_captcha', default: 'ivalid captcha')}</p>
+			</f:if>
+			<f:if condition="{error} == 10">
+				<p class="alert alert-danger">{f:translate(key: 'wrong_honeypot', default: 'spam detected')}</p>
+			</f:if>
+			<f:case value="901">
+				<p class="alert alert-danger">{f:translate(key: 'wrong_captcha', default: 'ivalid captcha')}</p>
+			</f:case>
+			<f:defaultCase>Error: unknown error.</f:defaultCase>
+		</f:if>
+	</f:else>
 </f:if>
 
 <f:render partial="FormErrors" arguments="{object:Log}" />

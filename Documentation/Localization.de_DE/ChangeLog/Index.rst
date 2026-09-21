@@ -308,3 +308,7 @@ Version 9.0.5:
 Version 9.1.0:
 
 - Sender-Name und Sender-E-Mail sind nun optional.
+
+Version 9.2.0:
+
+- Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt.
