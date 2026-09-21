@@ -314,4 +314,4 @@ Version 9.1.0:
 
 Version 9.2.0:
 
-- Custom captcha verification added to unsubscribe-form too.
+- Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.

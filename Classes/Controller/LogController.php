@@ -1045,10 +1045,12 @@ class LogController extends ActionController
                         $error = $tmp_error;
                     }
                 }
-                $customValidatorEvent = GeneralUtility::makeInstance(\Fixpunkt\FpNewsletter\Events\ValidateEvent::class);
-                if(!$customValidatorEvent->isValid()) {
-                    $error = 901;
-                    $error_msg = $customValidatorEvent->getMessage();
+                if ($this->settings['enableCustomValidatorUnsubscribe']) {
+                    $customValidatorEvent = GeneralUtility::makeInstance(\Fixpunkt\FpNewsletter\Events\ValidateEvent::class);
+                    if (!$customValidatorEvent->isValid()) {
+                        $error = 901;
+                        $error_msg = $customValidatorEvent->getMessage();
+                    }
                 }
             }
             if ($this->settings['honeypot'] && $log->getExtras()) {

@@ -311,4 +311,4 @@ Version 9.1.0:
 
 Version 9.2.0:
 
-- Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt.
+- Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.

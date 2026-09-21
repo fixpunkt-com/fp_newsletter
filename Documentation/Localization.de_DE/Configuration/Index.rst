@@ -53,6 +53,7 @@ reCAPTCHA_site_key                string      Websiteschlüssel für Google reCa
 reCAPTCHA_secret_key              string      Geheimer Schlüssel für Google reCaptcha v3
 mathCAPTCHA                       integer     Zeige ein mathematisches Captcha? 0: nein; 1, 2: ja, mit 1-2 Ziffern      0
 honeypot                          boolean     Einen Honigtopf (honeypot) gegen Spam einschalten?                        0
+enableCustomValidatorUnsubscribe  boolean     Schalte den eigenen Captcha-Validator auch bei der Abmeldeseite ein?      0
 debug                             boolean     Sendet keine E-Mails wenn debug=1                                         0
 checkForRequiredExtensions        boolean     Prüfen, ob benötigte Extensions installiert sind? 0: nein; 1: ja.         1
 company                           string      Name der Firma                                                            Ihre Firma
