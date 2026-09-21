@@ -191,6 +191,11 @@ you could use prependOptionLabel="-" prependOptionValue="0" for a select too.
 	</style>
 	<f:form.textfield property="extras" id="fp_extras" />
 </f:if>
+<f:if condition="{settings.antiSpamFieldName}">
+	<div aria-hidden="true" style="position:absolute; left:-9999px;">
+		<input type="text" tabindex="-1" autocomplete="off" name="tx_fpnewsletter_new[{settings.antiSpamFieldName}]" value="" />
+	</div>
+</f:if>
 <f:if condition="{settings.mathCAPTCHA} > 0">
 	<div class="form-group">
 		<label for="fp_mathcaptcha"><f:translate key="tx_fpnewsletter_domain_model_log.mathcaptcha" /> <span class="required">*</span></label>

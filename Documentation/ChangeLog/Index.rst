@@ -312,6 +312,10 @@ Version 9.1.0:
 
 - Sender-name and sender-mail is now optional.
 
-Version 9.2.0:
+Version 9.2.1:
 
 - Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.
+
+Version 9.2.2:
+
+- Setting antiSpamFieldName added.

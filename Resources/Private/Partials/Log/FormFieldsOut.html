@@ -12,11 +12,18 @@
 	</div>
 </f:if>
 
+<f:if condition="{plugin} == '' || {plugin} == 'unsubscribe'">
 <f:if condition="{settings.honeypot} > 0">
 	<style>
 	input#fp_un_extras {display:none !important;}
 	</style>
 	<f:form.textfield property="extras" id="fp_un_extras" />
+</f:if>
+<f:if condition="{settings.antiSpamFieldName}">
+	<div aria-hidden="true" style="position:absolute; left:-9999px;">
+		<input type="text" tabindex="-1" autocomplete="off" name="tx_fpnewsletter_unsubscribe[{settings.antiSpamFieldName}]" value="" />
+	</div>
+</f:if>
 </f:if>
 <f:if condition="{settings.enableUnsubscribeGdprAsHidden} == 1"><f:then>
 	<f:form.hidden name="log[gdpr]" value="1" />

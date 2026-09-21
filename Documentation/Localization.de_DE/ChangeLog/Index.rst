@@ -309,6 +309,10 @@ Version 9.1.0:
 
 - Sender-Name und Sender-E-Mail sind nun optional.
 
-Version 9.2.0:
+Version 9.2.1:
 
 - Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.
+
+Version 9.2.2:
+
+- TypoScript antiSpamFieldName hinzugefügt.

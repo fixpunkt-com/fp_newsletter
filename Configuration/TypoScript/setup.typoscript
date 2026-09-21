@@ -51,6 +51,7 @@ plugin.tx_fpnewsletter {
     reCAPTCHA_secret_key =
     mathCAPTCHA = 0
     enableCustomValidatorUnsubscribe = 0
+    antiSpamFieldName =
     honeypot = 0
     checkForRequiredExtensions = 1
     preferXlfFile = 0

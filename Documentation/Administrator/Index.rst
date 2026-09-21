@@ -302,8 +302,8 @@ direct unsubscription.
 Captchas
 --------
 
-You can use 3 different captchas. 2 of them can be configured via TypoScript settings. See chapter "Configuration".
-The third method is a custom captcha validator and requires PHP acknowledgment, because you will need a second extension.
+You can use 4 different captchas. 3 of them can be configured via TypoScript settings. See chapter "Configuration".
+The forth method is a custom captcha validator and requires PHP acknowledgment, because you will need a second extension.
 And maybe a third one, e.g. a "friendly captcha" extension.
 
 This extension provides a validate event. If you want to use this validator, add some lines to the New.html template of

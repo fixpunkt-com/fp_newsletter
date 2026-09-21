@@ -172,6 +172,7 @@ class LogController extends ActionController
         $this->view->assign('required', $required);
         $this->view->assign('error', $error);
         $this->view->assign('error_msg', $error_msg);
+        $this->view->assign('plugin', '');
         $this->view->assign('log', $log);
         return $this->htmlResponse();
     }
@@ -611,6 +612,9 @@ class LogController extends ActionController
         }
         if ($this->settings['honeypot'] && $log->getExtras()) {
             // Der Honigtopf ist gefüllt
+            $error = 10;
+        }
+        if (!$this->checkAntiSpamField()) {
             $error = 10;
         }
         $error_msg = '';
@@ -1057,6 +1061,9 @@ class LogController extends ActionController
                 // Der Honigtopf ist gefüllt
                 $error = 10;
             }
+            if (!$this->checkAntiSpamField()) {
+                $error = 10;
+            }
             if ($error == 7) {
                 $log->setStatus(8);
             } else {
@@ -1379,6 +1386,24 @@ class LogController extends ActionController
             $this->settings['table'],
             $this->settings['newsletterExtension']
         );
+    }
+
+    /**
+     * Prüft, ob ein custom Feld befüllt ist
+     * @return bool
+     */
+    private function checkAntiSpamField(): bool
+    {
+        $fieldName = trim((string)($this->settings['antiSpamFieldName'] ?? ''));
+        if ($fieldName === '') {
+            // Feature nicht aktiviert, überspringen
+            return true;
+        }
+        $parsedBody = $this->request->getParsedBody();
+        $pluginNamespace = 'tx_' . strtolower($this->request->getControllerExtensionName()) . '_' . strtolower($this->request->getPluginName());
+        $value = $parsedBody[$pluginNamespace][$fieldName] ?? '';
+        // Feld ist befüllt --> vermutlich ein Bot
+        return trim((string)$value) === '';
     }
 
     /**
