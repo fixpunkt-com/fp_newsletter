@@ -54,6 +54,7 @@ reCAPTCHA_site_key                string      Website-key for Google reCaptcha v
 reCAPTCHA_secret_key              string      Secret key for Google reCaptcha v3
 mathCAPTCHA                       integer     Show a mathematical captcha? 0: no; 1: with 1 digit; 2: with 2 digits     0
 honeypot                          boolean     Enable a honeypot against spam?                                           0
+enableCustomValidatorUnsubscribe  boolean     Enable custom validator even at the unsubscribe page?                     0
 debug                             boolean     Don´t send email when debug=1                                             0
 checkForRequiredExtensions        boolean     Check, if required extensions are installed. 0: no; 1: yes.               1
 company                           string      Name of your company                                                      Ihre Firma

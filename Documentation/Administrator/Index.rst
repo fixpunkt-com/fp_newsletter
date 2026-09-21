@@ -327,6 +327,7 @@ Add xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" and rep
 Add <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
 and adapt it to your custom captcha extension. And set the TypoScript settings "site_key".
 Note: the lines above shows you only an example for a "friendly captcha" solution.
+Note: you need to enable this validator for the unsubscribe page via TypoScript setting enableCustomValidatorUnsubscribe.
 
 Furthermore you need an event listener in your custom captcha extension. It may look like this::
 

@@ -663,14 +663,13 @@ class LogController extends ActionController
     /**
      * action unsubscribe with form
      *
-     * @param Log|null $log
-     *            Log-Entry
-     * @param int $error
-     *            Error-Code
+     * @param Log|null $log Log-Entry
+     * @param int $error Error-Code
+     * @param string|null $error_msg Error-Message
      * @return ResponseInterface
      * @throws \Exception
      */
-    public function unsubscribeAction(?Log $log = null, int $error = 0): ResponseInterface
+    public function unsubscribeAction(?Log $log = null, int $error = 0, ?string $error_msg = null): ResponseInterface
     {
         $storagePidsArray = $this->logRepository->getStoragePids();
         $pid = intval($storagePidsArray[0]);
@@ -724,6 +723,7 @@ class LogController extends ActionController
         $this->view->assign('plugin', $pi);
         $this->view->assign('log', $log);
         $this->view->assign('error', $error);
+        $this->view->assign('error_msg', $error_msg);
         return $this->htmlResponse();
     }
 
@@ -917,6 +917,7 @@ class LogController extends ActionController
     public function deleteAction(?Log $log = null, array $user = []): ResponseInterface
     {
         $error = 0;
+        $error_msg = '';
         $messageUid = 0;
         $skipCaptchaTest = false;
         $checkSession = false;
@@ -1042,6 +1043,13 @@ class LogController extends ActionController
                         $error = $tmp_error;
                     }
                 }
+                if ($this->settings['enableCustomValidatorUnsubscribe']) {
+                    $customValidatorEvent = GeneralUtility::makeInstance(\Fixpunkt\FpNewsletter\Events\ValidateEvent::class);
+                    if(!$customValidatorEvent->isValid()) {
+                        $error = 901;
+                        $error_msg = $customValidatorEvent->getMessage();
+                    }
+                }
             }
             if ($this->settings['honeypot'] && $log->getExtras()) {
                 // Der Honigtopf ist gefüllt
@@ -1102,6 +1110,7 @@ class LogController extends ActionController
                     [
                         'log' => $log,
                         'error' => $error,
+                        'error_msg' => $error_msg,
                         'securityhash' => $log->getSecurityhash()
                     ]
                 );

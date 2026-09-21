@@ -312,6 +312,18 @@ Version 9.1.0:
 
 - Sender-name and sender-mail is now optional.
 
+Version 9.2.1:
+
+- Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.
+
 Version 10.0.0:
 
 - First version for TYPO3 14.
+
+Version 10.1.0:
+
+- Refactoring. Maybe salutations are not working in emails.
+
+Version 10.2.0:
+
+- Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.

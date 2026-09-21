@@ -132,7 +132,7 @@ Dazu ersetzt man diese Zeile::
 
   <f:form.hidden property="categories" value="{settings.categoryOrGroup}" id="fp_categories" />
 
-durch soetwas::
+durch so etwas::
 
   <div class="form-group">
     <label class="form-label" class="form-label">Choose a group:</label>
@@ -320,6 +320,8 @@ Füge xmlns:fp="https://typo3.org/ns/YourVendor/YourExtension/ViewHelpers" hinzu
 Füge <fp:form.friendlyCaptcha name="captcha_solution">...</fp:form.friendlyCaptcha>
 hinzu und passe es an deine Extension an. Füge die TypoScript settings "site_key" hinzu.
 Bemerkung: diese Zeilen zeigen nur ein Beispiel für eine "friendly captcha" Lösung.
+
+Achtung: für die Abmeldung muss man diesen Validator noch via TypoScript enableCustomValidatorUnsubscribe einschalten!
 
 Weiterhin braucht man einen Event-Listener in der eigenen Captcha-Extension. Er sollte so in etwa aussehen::
 

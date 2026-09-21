@@ -309,6 +309,18 @@ Version 9.1.0:
 
 - Sender-Name und Sender-E-Mail sind nun optional.
 
+Version 9.2.1:
+
+- Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.
+
 Version 10.0.0:
 
 - Erste Version für TYPO3 14.
+
+Version 10.1.0:
+
+- Überarbeitung. Eventuell funktionieren die Anreden in E-Mails mit TYPO3 14 nicht mehr.
+
+Version 10.2.0:
+
+- Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.
