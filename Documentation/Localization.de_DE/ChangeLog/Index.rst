@@ -313,6 +313,10 @@ Version 9.2.1:
 
 - Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.
 
+Version 9.2.2:
+
+- TypoScript antiSpamFieldName hinzugefügt.
+
 Version 10.0.0:
 
 - Erste Version für TYPO3 14.
@@ -324,3 +328,5 @@ Version 10.1.0:
 Version 10.2.0:
 
 - Spezielle Captcha-Verifikation auch zum Abmeldeformular hinzugefügt. TypoScript enableCustomValidatorUnsubscribe hinzugefügt.
+
+- TypoScript antiSpamFieldName hinzugefügt.

@@ -316,6 +316,10 @@ Version 9.2.1:
 
 - Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.
 
+Version 9.2.2:
+
+- Setting antiSpamFieldName added.
+
 Version 10.0.0:
 
 - First version for TYPO3 14.
@@ -327,3 +331,5 @@ Version 10.1.0:
 Version 10.2.0:
 
 - Custom captcha verification added to unsubscribe-form too. Setting enableCustomValidatorUnsubscribe added.
+
+- Setting antiSpamFieldName added.

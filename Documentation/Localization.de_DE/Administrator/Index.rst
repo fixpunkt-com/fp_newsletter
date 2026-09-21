@@ -295,8 +295,8 @@ Setze plugin.tx_fpnewsletter.settings.unsubscribeMode = 1 wenn stattdessen erst 
 Captchas
 --------
 
-Man kann 3 verschiedene Captcha-Methoden benutzen. 2 davon kann man via TypoScript-Einstellungen konfigurieren.
-Siehe Kapitel "Configuration". Die 3. Methode ist eine spezielle Lösung, die PHP-Kenntnisse voraussetzt, weil man
+Man kann 4 verschiedene Captcha-Methoden benutzen. 3 davon kann man via TypoScript-Einstellungen konfigurieren.
+Siehe Kapitel "Configuration". Die 4. Methode ist eine spezielle Lösung, die PHP-Kenntnisse voraussetzt, weil man
 noch 1-2 weitere Extensions dafür benötigt.
 
 Diese Extension stellt ein Validate-Event zur Verfügung, welches im New.html Template dieser Extension wie folgt

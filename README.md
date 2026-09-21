@@ -47,3 +47,4 @@ Version 10.1.0:
 Version 10.2.0:
 - Custom captcha verification added to unsubscribe-form too.
 - Setting enableCustomValidatorUnsubscribe added.
+- Setting antiSpamFieldName added.

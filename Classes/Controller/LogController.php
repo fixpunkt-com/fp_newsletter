@@ -171,6 +171,7 @@ class LogController extends ActionController
         $this->view->assign('required', $required);
         $this->view->assign('error', $error);
         $this->view->assign('error_msg', $error_msg);
+        $this->view->assign('plugin', '');
         $this->view->assign('log', $log);
         return $this->htmlResponse();
     }
@@ -611,6 +612,9 @@ class LogController extends ActionController
             // Der Honigtopf ist gefüllt
             $error = 10;
         }
+        if (!$this->checkAntiSpamField()) {
+            $error = 10;
+        }
         $error_msg = '';
         $customValidatorEvent = GeneralUtility::makeInstance(\Fixpunkt\FpNewsletter\Events\ValidateEvent::class);
         if(!$customValidatorEvent->isValid()) {
@@ -1017,7 +1021,6 @@ class LogController extends ActionController
             if (!$skipCaptchaTest) {
                 if ($this->settings['reCAPTCHA_site_key'] && $this->settings['reCAPTCHA_secret_key']) {
                     $requestFactory = GeneralUtility::makeInstance(RequestFactory::class);
-
                     $url = "https://www.google.com/recaptcha/api/siteverify";
                     $additionalOptions = [
                         'form_params' => [
@@ -1025,9 +1028,7 @@ class LogController extends ActionController
                             'response' => $log->getRetoken()
                         ]
                     ];
-
                     $request = $requestFactory->request($url, 'POST', $additionalOptions);
-
                     if ($request->getStatusCode() === 200) {
                         $resultBody = json_decode((string) $request->getBody()->getContents(), true);
                         if (!$resultBody['success'])
@@ -1053,6 +1054,9 @@ class LogController extends ActionController
             }
             if ($this->settings['honeypot'] && $log->getExtras()) {
                 // Der Honigtopf ist gefüllt
+                $error = 10;
+            }
+            if (!$this->checkAntiSpamField()) {
                 $error = 10;
             }
             if ($error == 7) {
@@ -1377,6 +1381,24 @@ class LogController extends ActionController
             $this->settings['table'],
             $this->settings['newsletterExtension']
         );
+    }
+
+    /**
+     * Prüft, ob ein custom Feld befüllt ist
+     * @return bool
+     */
+    private function checkAntiSpamField(): bool
+    {
+        $fieldName = trim((string)($this->settings['antiSpamFieldName'] ?? ''));
+        if ($fieldName === '') {
+            // Feature nicht aktiviert, überspringen
+            return true;
+        }
+        $parsedBody = $this->request->getParsedBody();
+        $pluginNamespace = 'tx_' . strtolower($this->request->getControllerExtensionName()) . '_' . strtolower($this->request->getPluginName());
+        $value = $parsedBody[$pluginNamespace][$fieldName] ?? '';
+        // Feld ist befüllt --> vermutlich ein Bot
+        return trim((string)$value) === '';
     }
 
     /**
