@@ -38,10 +38,7 @@ Der komplette Abonnent wird bei der Abmeldung gelöscht, sodass man sich nicht n
 Allerdings ist seit Version 4.1.0 eine Bearbeitung der Newsletter-Daten möglich!
 Im Bearbeiten-Formular stehen alle möglichen Kategorien zur Auswahl zur verfügung.
 
-Achtung!
-^^^^^^^^
-
-Wenn man Version 6 mit TYPO3 11.5 benutzt, gibt es keine Vorschau (mehr) im Backend.
+PS: wenn man Version 6 mit TYPO3 11.5 benutzt, gibt es keine Vorschau (mehr) im Backend.
 
 
 .. _screenshots:
@@ -61,5 +58,5 @@ Danke an ...
 ^^^^^^^^^^^^
 
 Diese Extension wurde programmiert von der
-`fixpunkt für digitales GmbH, Bonn <https://www.fixpunkt.com/webentwicklung/typo3/typo3-extensions/>`_
+`fixpunkt für digitales GmbH, Bonn <https://www.fixpunkt.com/agentur-leistungen/typo3/typo3-erweiterung>`_
 und fixpunkt stellt sie der TYPO3-Community zur Verfügung.

@@ -36,10 +36,7 @@ category, but it is not possible to unsubscribe only from a specific category (a
 The whole user will be deleted at an unsubscription so it is not possible to unsubscribe only from category/newsletter X.
 But from version 4.1.0 it is possible to edit a newsletter subscription!
 
-Note!
-^^^^^
-
-If you use version 6 with TYPO3 11.5, you will see no preview in the backend!
+Note: if you use version 6 with TYPO3 11.5, you will see no preview in the backend!
 
 
 .. _screenshots:
@@ -61,5 +58,5 @@ Thanks to ...
 Thanks to the
 `fixpunkt für digitales GmbH, Bonn <https://www.fixpunkt.com/webentwicklung/typo3>`_
 for giving me the possibility to realize
-`this extension <https://www.fixpunkt.com/webentwicklung/typo3/typo3-programmierung>`_
+`this extension <https://www.fixpunkt.com/agentur-leistungen/typo3/typo3-erweiterung>`_
 and share it with the TYPO3 community.
